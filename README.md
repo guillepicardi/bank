@@ -24,26 +24,26 @@
 
 ## Description
 
-### Implementación de una arquitectura hexagonal en el framework Nest.js con una base de datos mySql.
+### Hexagonal architecture implementation in the Nest.js framework with a mySQL database.
 
-Se tiene dos entidades:
+There are two entities:
 
-1. Company: CUIT, Razón Social, Fecha Adhesión
+1. Company: Tax ID, Company Name, Join Date
 
-2. Transfer: Importe, Id Company, Cuenta Débito, Cuenta Crédito
+2. Transfer: Amount, Company ID, Debit Account, Credit Account
 
 ![alt text](uml.png)
 
 ## Endpoints
 
 ```bash
-# Endpoint 1: Trae las empresas que hicieron transferencias el último mes (de hoy hasta los últimos 30 días )
+# Endpoint 1: Brings up companies that made transfers in the last month (from today to the last 30 days)
 http://localhost:3000/company/transfers
-# Endpoint 2: Trae las empresas que se adhirieron el último mes (de hoy hasta los últimos 30 días)
+# Endpoint 2: Brings up companies that joined in the last month (from today to the last 30 days)
 http://localhost:3000/company/company
-# Endpoint 3: Permite la adhesión de una empresa
+# Endpoint 3: Allows a company to join
 http://localhost:3000/company/
-# Documentación en swagger
+# Swagger documentation
 http://localhost:3000/api
 ```
 
@@ -51,9 +51,9 @@ http://localhost:3000/api
 
 ```bash
 $ npm install
-# instala y ejecuta mySql docker container
+# install and run mySql docker container
 $ docker compose up -d
-# correr en la base el archivo src/script/test-data.sql
+# run this script file at the database src/script/test-data.sql
 ```
 
 ## Compile and run the project
