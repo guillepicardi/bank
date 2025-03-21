@@ -5,11 +5,7 @@ import { CompanyModule } from './company.module';
 import { dbConfig } from './infrastructure/config/db-config';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot(dbConfig),
-    CompanyModule,
-  ],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), TypeOrmModule.forRoot(dbConfig), CompanyModule],
   controllers: [],
   providers: [],
 })

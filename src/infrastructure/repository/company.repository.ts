@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CompanyRepositoryPort } from '../../domain/ports/company.ports';
+import { CompanyRepositoryPort } from '../../domain/ports/company.repository.port';
 import { Company } from './company.entity';
 
 @Injectable()
@@ -17,6 +17,7 @@ export class CompanyRepositoryAdapter implements CompanyRepositoryPort {
       .innerJoin('company.transfers', 'transfer')
       .where('transfer.creationDate >= :from', { from })
       .andWhere('transfer.creationDate <= :to', { to })
+      .distinct(true)
       .getMany();
     return companies;
   }
